@@ -1,14 +1,20 @@
 options mprint source;
+
 /*This is a program designed to understand the look back 
 and look forward in a same program using SAS, this is higly
 usefull for verifying time series data*/
-libname xxx '/u04/dataloader/skparida/App/ZZ';
+
+libname xxx '/folders/myfolders/SAS_Learnings_1/data';
+
+proc datasets lib=xxx nolist kill;
+quit;
+run;
 
 data xxx.asdf;
 format vistdate date9.;
 input siteid:$4. subjectid:$4. visitid:$4. vistdate:ddmmyy10.;
 ID=_n_;
-/*This is needed in method 1 only, if the dataset do not have a numeric sequential variable*/
+/*The ID variable is needed in method 1 only, if the dataset do not have a numeric sequential variable*/
 datalines;
 1000 0001 0001 01-01-2018
 1000 0001 0002 02-01-2018
