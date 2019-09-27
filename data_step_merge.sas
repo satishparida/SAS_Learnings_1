@@ -18,28 +18,40 @@ datalines;
 ;
 run;
 
-data C;
-set B A;
-run;
-
-data D;
+/*The length of A is considered over B for variable y*/
+data C1;
 set A B;
 run;
 
-data E;
+/*The length of B is considered over A for variable y*/
+data C2;
+set B A;
+run;
+
+/*The minimum length is concidered for variable y*/
+/*Number of observation = least number of oberservations present in participating tables in set*/
+/*Here data of B overwrites data of A for variable y*/
+data D1;
 set A;
 set B;
 run;
 
-data F;
+/*The minimum length is concidered for variable y*/
+/*Number of observation = least number of oberservations present in participating tables in set*/
+/*Here data of A overwrites data of B for variable y*/
+data D2;
 set B;
 set A;
 run;
 
-data G;
+/*The length of A is considered over B for variable y*/
+/*Data of B over writes data of A for variable y*/
+data E1;
 merge A B;
 run;
 
-data H;
+/*The length of B is considered over A for variable y*/
+/*Data of A over writes data of B for variable y*/
+data E2;
 merge B A;
 run;
