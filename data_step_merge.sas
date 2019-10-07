@@ -55,3 +55,7 @@ run;
 data E2;
 merge B A;
 run;
+
+
+/*Conclusion: Variable attributes such as length and type are determined the first
+time a variable is encountered*/
